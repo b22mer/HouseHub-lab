@@ -1,0 +1,5 @@
+server/** linguist-documentation=false
+server/** linguist-vendored=false
+
+client/** linguist-documentation=false
+client/** linguist-vendored=false
