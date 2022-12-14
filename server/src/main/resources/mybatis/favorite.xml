@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.home.favorite.dao.FavoriteMapper">
+    <insert id="favoritedong" parameterType="FavoriteDTO">
+        insert into favoriteLoc (id, dongCode)
+        values (#{id}, #{dongCode})
+    </insert>
+
+    <select id="getfavoritedongdeal" parameterType="String" resultType="HouseDTO">
+        select i.dong,
+               i.roadName,
+               i.apartmentName,
+               i.lat,
+               i.lng,
+               i.dongCode,
+               d.floor,
+               d.area,
+               d.dealAmount,
+               d.no
+        from houseinfo as i
+                 inner join housedeal as d
+                            on i.aptCode = d.aptCode
+        where i.dongCode in (select dongCode from favoriteLoc where id = #{id})
+        limit 50
+    </select>
+</mapper>

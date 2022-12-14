@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.home.member.mapper.MemberMapper">
+    <resultMap id="memberDto" type="member">
+        <result property="name" column="name"/>
+        <result property="position" column="position"/>
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="email" column="email"/>
+        <result property="phoneNumber" column="phone_number"/>
+    </resultMap>
+
+    <!--use google login-->
+    <select id="useGoogleLogin" parameterType="String" resultType="Member">
+        select *
+        from member
+        where email = #{email};
+    </select>
+
+    <!--find email-->
+    <select id="isEmailExist" resultType="String" parameterType="int">
+        select count(*)
+        from member
+        where email = #{email}
+    </select>
+
+    <!--user login-->
+    <select id="login" resultType="Member" parameterType="map">
+        select *
+        from member
+        where id = #{id}
+          and pw = #{pw};
+    </select>
+
+    <!--user register-->
+    <insert id="register" parameterType="Member">
+        insert into member (name, position, id, pw, email, phone_number, admin)
+        values (#{ name}, #{ position}, #{id}, #{pw}, #{email}, #{phoneNumber}, 0)
+    </insert>
+
+    <!--user register id check-->
+    <select id="idCheck" parameterType="String" resultType="int">
+        select count(*)
+        from member
+        where id = #{userId}
+    </select>
+
+    <!--user info-->
+    <select id="userInfo" resultType="String" parameterType="member">
+        select *
+        from member
+        where id = #{userId}
+    </select>
+
+    <!--user delete-->
+
+    <delete id="userDelete" parameterType="Member">
+        delete
+        from member
+        where id = #{id}
+    </delete>
+
+    <update id="userUpdate" parameterType="Member">
+        UPDATE
+            member
+        SET name=#{name},
+            email=#{email},
+            phone_number=#{phoneNumber}
+        WHERE id = #{id}
+          and pw = #{pw}
+    </update>
+
+
+</mapper>

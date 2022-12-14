@@ -1,0 +1,13 @@
+demo.iml
+.idea
+target
+WhereIsMyHouse.iml
+home.iml
+.fleet
+bin
+files
+.vscode
+target
+target\generated-sources\annotations
+target\generated-test-sources\test-annotations
+.vscode

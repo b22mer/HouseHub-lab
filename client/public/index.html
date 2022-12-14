@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+		<link rel="icon" href="./favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<!--바꾸는 방법 체크, 얘로 안바꾸고 라우터에서 바꿔도 되는거였음 -->
+		<title><%= htmlWebpackPlugin.options.title %></title>
+	</head>
+	<body id="app-theme" class="app-theme">
+		<noscript>
+			<strong
+				>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't
+				work properly without JavaScript enabled. Please enable it to
+				continue.</strong
+			>
+		</noscript>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+
+
+	</body>
+</html>
+<!-- 
+
+data/projects.js: 대문 기능 사진 정보
+shared/Appheaderling: 홈페이지 메뉴란 정보
+router- title => 페이지 타이틀 변경
+vue에서 카카오 api를 추가해줄때는 바로 이전 프로젝트랑 똑같이 넣으면 kakao를 인식못하거나, 렌더링하는것 자체가 불가능할수있어서
+따로 scrip 속성을 불러와 넣어주어서 불러오거나, json 파일에 kakao를 추가해서 하면되는데 난 안됨
+const script = document.createElement("script");
+      /* global kakao */
+      script.onload = () => kakao.maps.load(this.initMap);
+      script.src =
+        "http://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey={앱키}";
+      document.head.appendChild(script);
+data/aptproto: 리스트 체크를 위한 더미 데이터
+dealSelect: 셀렉트 버튼 추가
+이후 디비 연동해야함
+
+ -->

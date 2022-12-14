@@ -1,0 +1,6 @@
+server/target
+.idea
+client/node_modules
+/.metadata/
+.DS_Store
+.gitmessage.txt
