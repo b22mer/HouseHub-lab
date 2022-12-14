@@ -3,3 +3,6 @@ server/** linguist-vendored=false
 
 client/** linguist-documentation=false
 client/** linguist-vendored=false
+
+*.css linguist-detectable=false
+
