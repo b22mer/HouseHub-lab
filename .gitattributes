@@ -5,4 +5,4 @@ client/** linguist-documentation=false
 client/** linguist-vendored=false
 
 *.css linguist-detectable=false
-
+*.html linguist-detectable=false
